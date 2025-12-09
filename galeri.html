@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Mühendis Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Emir Yağız Kefeli Blog Sayfası</div>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Yazılarım ▼</a>
+                <div class="dropdown-content">
+                    <a href="teknoloji.html">Teknoloji</a>
+                    <a href="gunluk.html">Günlük</a>
+                    <a href="spor.html">Spor</a>
+                </div>
+            </li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <img src="img/imza.png" class="nav-imza" alt="İmza">
+    </nav>
+
+    <div class="row">
+        <div class="single-column">
+            
+            <div class="card" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
+                <h1 style="color: #2ec4b6;">📸 Fotoğraf Galerim</h1>
+                <p>Anılar, projeler ve yakaladığım kareler.</p>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="galeriKaydir(-1)">&#10094;</button>
+
+                <div class="carousel-track" id="galeri-seridi"></div>
+
+                <button class="carousel-btn next-btn" onclick="galeriKaydir(1)">&#10095;</button>
+            </div>
+
+            <script src="js/veriler.js"></script> <script src="js/script.js"></script>
+
+            <div class="card" style="margin-top: 50px; text-align: center; background: linear-gradient(to right, #fdfdfd, #f4fdfc); border-left: 5px solid #2ec4b6; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    
+                <i class="fas fa-quote-left" style="font-size: 24px; color: #2ec4b6; margin-bottom: 15px; display: block;"></i>
+    
+                <p style="font-style: italic; font-size: 19px; font-weight: 500; color: #1a1a2e; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                    "Benim manevi mirasım ilim ve akıldır."
+                </p>
+    
+                <div style="margin-top: 20px; display: inline-flex; align-items: center; justify-content: center;">
+                    <span style="height: 1px; width: 30px; background: #2ec4b6; margin-right: 10px;"></span>
+                    <span style="font-weight: 700; color: #1a1a2e; letter-spacing: 1px;">Mustafa Kemal ATATÜRK</span>
+                    <span style="height: 1px; width: 30px; background: #2ec4b6; margin-left: 10px;"></span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+        <img class="modal-content" id="img01">
+        
+        <div id="caption"></div>
+    </div>
+
+    <div class="footer">
+        <h3>EMİR YAĞIZ KEFELİ</h3>
+        <p>Bilgisayar Mühendisliği Öğrencisi & Teknoloji Meraklısı</p>
+        <p style="margin-top: 15px; font-size: 14px; color: #ccc;">Telif Hakkı &copy; 2025</p>
+        <div class="footer-links" style="margin-top: 10px;">
+            <a href="index.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Anasayfa</a> | 
+            <a href="galeri.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Galeri</a> | 
+            <a href="iletisim.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">İletişim</a>
+        </div>
+    </div>
+
+    <script src="js/veriler.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

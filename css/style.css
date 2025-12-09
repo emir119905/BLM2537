@@ -1,0 +1,970 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MODERN NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 0 40px;
+    height: 75px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nav-imza {
+    height: 50px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.nav-imza:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: auto;
+    margin-left: 50px;
+    gap: 5px;
+}
+
+nav li a, .dropbtn {
+    display: block;
+    color: #e8ecf1;
+    text-align: center;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    position: relative;
+}
+
+nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transition: transform 0.3s ease;
+}
+
+nav li a:hover::after, .dropdown:hover .dropbtn::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+nav li a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(255, 107, 107, 0.15);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* DROPDOWN MENU */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1000;
+    top: 65px;
+    animation: dropdownSlide 0.5s ease-out;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.dropdown-content a:hover {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding-left: 25px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* LAYOUT */
+.row {
+    animation: fadeInUp 0.8s ease-out;
+    flex: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.leftcolumn {
+    float: left;
+    width: 73%;
+    padding: 0 20px;
+}
+
+.rightcolumn {
+    float: left;
+    margin-top: 10px;
+    width: 25%;
+    margin-left: 2%;
+    padding: 0 20px;
+}
+
+/* MODERN CARDS */
+.card {
+    background: #fff;
+    padding: 30px;
+    margin-top: 25px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: cardAppear 0.6s ease-out backwards;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    color: #1a1a2e;
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    border-radius: 2px;
+}
+
+.card h3 {
+    color: #1a1a2e;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card h5 {
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+/* IMAGES */
+.leftcolumn img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 15px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leftcolumn img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.rightcolumn img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.rightcolumn img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
+/* FORM STYLING */
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+    transform: translateY(-2px);
+}
+
+input[type=submit] {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(135deg, #ee5a6f 0%, #ff6b6b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+}
+
+input[type=submit]:active {
+    transform: translateY(0);
+}
+
+.container {
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    padding: 25px;
+}
+
+label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+/* GALLERY */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gallery-img {
+    width: 30%;
+    height: 220px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gallery-img:hover {
+    opacity: 0.9;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 85%;
+    max-width: 1000px;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.15);
+    animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #e8ecf1;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    color: #f1f1f1;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+/* FOOTER */
+.footer {
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    margin-top: 40px;
+    border-top: 4px solid;
+    border-image: linear-gradient(90deg, #ff6b6b, #4ecdc4) 1;
+}
+
+.footer h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    nav {
+        padding: 0 20px;
+        height: auto;
+        flex-wrap: wrap;
+    }
+    
+    nav ul {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+    
+    .gallery-img {
+        width: 45%;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gallery-img {
+        width: 100%;
+    }
+}
+
+/* --- YENİ GRID BLOG TASARIMI --- */
+
+/* Izgara Sistemi: 3 Eşit Sütun */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 tane eşit sütun */
+    gap: 25px; /* Kutular arası boşluk */
+    margin-top: 25px;
+}
+
+/* Tekil Blog Kutusu */
+.blog-post-box {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden; /* Resim köşelerden taşmasın */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column; /* İçindekiler alt alta dizilsin */
+    
+    /* Animasyonlu giriş (Senin koda uyumlu) */
+    animation: cardAppear 0.6s ease-out backwards;
+}
+
+/* Kutunun üzerine gelince "POP" efekti */
+.blog-post-box:hover {
+    transform: translateY(-8px) scale(1.02); /* Hafif yukarı ve büyüme */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* Kutu içindeki Resim */
+.blog-post-box img {
+    width: 100%;
+    height: 180px !important; /* Yüksekliği sabitledik */
+    object-fit: cover;
+    margin: 0; /* Eski marginleri sıfırladık */
+    border-radius: 0; /* Köşeler kutuya uysun */
+    border-bottom: 2px solid #f1f1f1;
+}
+
+/* Yazı Alanı */
+.post-content {
+    padding: 20px;
+    flex-grow: 1; /* Butonu en alta itmek için alanı doldur */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-content h3 {
+    margin: 0 0 10px 0;
+    color: #1a1a2e;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.post-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Metin kısa kalsa bile butonu alta it */
+}
+
+/* "Devamını Oku" Butonu */
+.read-more-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #2ec4b6 0%, #20a094 100%); /* Senin footer rengine uyumlu */
+    color: white !important; /* Link rengini zorla beyaz yap */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Sola yasla */
+}
+
+.read-more-btn:hover {
+    background: linear-gradient(135deg, #20a094 0%, #2ec4b6 100%);
+    transform: translateX(5px); /* Üzerine gelince sağa tık oynasın */
+    box-shadow: 0 4px 15px rgba(32, 160, 148, 0.3);
+}
+
+/* MOBİL UYUM (Responsive) */
+/* Ekran daralınca 3 sütundan 1 sütuna düşsün */
+@media screen and (max-width: 900px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablette 2 sütun */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .blog-grid {
+        grid-template-columns: 1fr; /* Mobilde 1 sütun */
+    }
+}
+/* --- SAYFALAMA (PAGINATION) - ÇERÇEVELİ TASARIM --- */
+.pagination {
+    display: block; /* Geniş alana yayıl */
+    margin-top: 40px; /* Grid ile arasına mesafe */
+    margin-bottom: 20px;
+    background: transparent; /* Beyaz arka plan KALKTI */
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    box-shadow: none; /* Gölgeyi de kaldırdık, sırıtmaması için */
+}
+
+.pagination a {
+    color: #333; /* Yazı rengi koyu gri */
+    display: inline-block; /* Yan yana diz */
+    padding: 10px 18px; /* Butonları biraz büyüttük */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px; /* Köşeler yuvarlak */
+    margin: 0 6px; /* Butonlar birbirine yapışmasın */
+    
+    /* İŞTE BURASI DEĞİŞTİ: */
+    border: 2px solid #2ec4b6; /* Gri Çerçeve */
+    background-color: transparent; /* İçi şeffaf */
+    font-weight: 600; /* Yazılar biraz kalın olsun */
+}
+
+/* Aktif Olan Sayfa (1 Numara gibi) */
+.pagination a.active {
+    background-color: #2ec4b6; /* İçi dolu olsun */
+    color: white;
+    border-color: #2ec4b6; /* Çerçevesi de aynı renk */
+    box-shadow: 0 4px 10px rgba(46, 196, 182, 0.3); /* Hafif parlama */
+}
+
+/* Üzerine Gelince (Hover) */
+.pagination a:hover:not(.active) {
+    background-color: #e8ecf1; /* Hafif gri dolgu */
+    border-color: #2ec4b6; /* Çerçeve koyulaşsın */
+    transform: translateY(-2px); /* Hafif zıplasın */
+}
+/* --- PASİF BUTON AYARI --- */
+.pagination a.disabled {
+    color: #ccc; /* Yazı rengi gri olsun */
+    border-color: #eee; /* Çerçeve çok silik olsun */
+    pointer-events: none; /* Tıklanmayı engelle */
+    cursor: default;
+    background-color: #f9f9f9;
+}
+
+/* --- SAĞ SÜTUN SOSYAL MEDYA BUTONLARI --- */
+
+.social-icons {
+    display: flex; /* Yan yana diz */
+    gap: 10px; /* Aralarında boşluk olsun */
+    margin-top: 15px;
+}
+
+.social-btn {
+    flex: 1; /* Bulunduğu alana eşit yayılsınlar */
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* GitHub Buton Rengi (Siyahımsı) */
+.social-btn.github {
+    background-color: #333;
+}
+.social-btn.github:hover {
+    background-color: #000;
+    transform: translateY(-3px); /* Hafif zıplama efekti */
+}
+
+/* LinkedIn Buton Rengi (Mavi) */
+.social-btn.linkedin {
+    background-color: #0077b5;
+}
+.social-btn.linkedin:hover {
+    background-color: #005582;
+    transform: translateY(-3px);
+}
+
+/* İkon ile Yazı Arasındaki Boşluk */
+.social-btn i {
+    margin-right: 5px;
+}
+
+/* --- SAĞ SÜTUN: POPÜLER KONULAR (BANNER) --- */
+.topic-banner {
+    display: block;
+    position: relative; /* İçindeki yazıyı üzerine sabitlemek için */
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden; /* Resim taşarsa kes */
+    text-decoration: none;
+}
+
+.topic-banner img {
+    width: 100%;
+    height: 80px; /* Banner gibi ince uzun olsun */
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+    filter: brightness(0.7); /* Resmi biraz karart ki yazı okunsun */
+}
+
+/* Resmin üzerindeki yazı */
+.topic-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Tam ortala */
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Yazıya gölge at */
+    letter-spacing: 1px;
+}
+
+/* Hover Efekti */
+.topic-banner:hover img {
+    transform: scale(1.05); /* Resim büyüsün */
+    filter: brightness(1); /* Resim aydınlansın */
+}
+
+/* --- SAĞ SÜTUN: SON YAZILAR (LİSTE) --- */
+.recent-link {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd; /* Altına ince çizgi */
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+/* Sonuncunun altındaki çizgiyi kaldır */
+.recent-link:last-child {
+    border-bottom: none;
+}
+
+.recent-link i {
+    color: #2ec4b6; /* Ok işareti turkuaz olsun */
+    margin-right: 8px;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+/* Hover Efekti */
+.recent-link:hover {
+    color: #2ec4b6; /* Yazı rengi değişsin */
+    padding-left: 5px; /* Hafif sağa kaysın */
+}
+
+.recent-link:hover i {
+    transform: translateX(3px); /* Ok da kaysın */
+}
+
+/* --- TEK SÜTUN (DETAY SAYFASI İÇİN) --- */
+.single-column {
+    width: 100%; /* Tam genişlik */
+    padding: 0 40px;
+    margin: auto;
+}
+
+.single-column .card {
+    padding: 50px; /* İç boşluğu artır, ferah olsun */
+}
+
+/* --- GALERİ OKLARI --- */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px; /* Büyük olsun */
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 10000; /* Resmin üstünde kalsın */
+}
+
+/* Sağdaki ok sağa yapışsın */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Üzerine gelince */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- YAZI DETAY SAYFASI (DERGİ TARZI) --- */
+.article-wrapper {
+    max-width: 900px; /* Sayfanın çok yayılmasını engeller, kitap gibi durur */
+    margin: 40px auto; /* Ortalar */
+    padding: 0 20px;
+}
+
+/* Kapak Resmi (Banner) */
+.article-banner-container {
+    width: 100%;
+    height: 350px; /* Yüksekliği sabitledik (Poster gibi uzamaz) */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Hafif gölge */
+    margin-bottom: 30px;
+}
+
+.article-banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi kutuya sığdırırken orantısını bozmaz, keser */
+    object-position: center;
+}
+
+/* İçerik Alanı */
+.article-content-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Hafif bir kart görünümü */
+}
+
+.back-link {
+    text-decoration: none;
+    color: #2ec4b6;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+#detay-baslik {
+    font-size: 32px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.article-divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 20px 0 30px 0;
+}
+
+/* Yazı içi paragraflar */
+#detay-icerik p {
+    font-size: 18px; /* Okuması kolay olsun diye büyük punto */
+    line-height: 1.8; /* Satır aralığı ferah */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* --- GALERİ OKLARI (LIGHTBOX) --- */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px; /* Dikey ortalamak için */
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; /* Seçilmeyi engelle */
+    z-index: 10000; /* Her şeyin üstünde olsun */
+}
+
+/* Sağdaki ok sağa yapışsın */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Soldaki ok sola yapışsın */
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Üzerine gelince arkaplan koyulaşsın */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- CAROUSEL (DÖNEN GALERİ) TASARIMI --- */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    position: relative;
+}
+
+/* Resimlerin Dizildiği Şerit */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Tekil Resim Kartı */
+.carousel-img {
+    width: 32%; /* 3 tane sığsın diye %32 */
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    /* Gelen resim hafif efektle gelsin */
+    animation: fadeIn 0.5s;
+}
+
+.carousel-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Sağ-Sol Butonları */
+.carousel-btn {
+    background-color: #2ec4b6;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: #20a094;
+    transform: scale(1.1);
+}
+
+/* Mobilde oklar resimlerin üstüne binmesin diye */
+@media screen and (max-width: 768px) {
+    .carousel-img {
+        height: 180px; /* Mobilde biraz küçült */
+    }
+}

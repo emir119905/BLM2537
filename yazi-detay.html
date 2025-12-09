@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Yazısı - Emir Yağız Kefeli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MÜHENDİS BLOG</div>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Yazılarım ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Teknoloji</a>
+                    <a href="#">Günlük</a>
+                    <a href="#">Spor</a>
+                </div>
+            </li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <img src="img/imza.png" class="nav-imza" alt="İmza">
+    </nav>
+
+    <div class="article-wrapper">
+    
+    <div class="article-banner-container">
+        <img id="detay-resim" src="" alt="Kapak Resmi">
+    </div>
+
+    <div class="article-content-box">
+        <a href="index.html" class="back-link">← Anasayfaya Dön</a>
+
+        <h1 id="detay-baslik">Yükleniyor...</h1>
+        <div class="article-meta">
+            <span id="detay-tarih">...</span>
+            <span class="author-tag"><i class="fas fa-user"></i> Emir Yağız</span>
+        </div>
+
+        <hr class="article-divider">
+
+        <div id="detay-icerik">
+        </div>
+    </div>
+
+    </div>
+
+    <div class="footer">
+    <h3>EMİR YAĞIZ KEFELİ</h3>
+    <p>Bilgisayar Mühendisliği Öğrencisi & Teknoloji Meraklısı</p>
+    
+    <p style="margin-top: 15px; font-size: 14px; color: #ccc;">
+        Telif Hakkı &copy; 2025 &bull; Tüm Hakları Saklıdır
+    </p>
+
+    <div class="footer-links" style="margin-top: 10px;">
+        <a href="index.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Anasayfa</a> | 
+        <a href="galeri.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Galeri</a> | 
+        <a href="iletisim.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">İletişim</a>
+
+        <span style="margin-left: 15px; border-left: 1px solid #555; padding-left: 15px;">
+            <a href="https://github.com/KULLANICIADIN" target="_blank" style="color: white; margin-right: 10px; font-size: 16px;"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" style="color: white; font-size: 16px;"><i class="fab fa-linkedin"></i></a>
+        </span>
+    </div>
+    </div>
+
+    <script src="js/veriler.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        window.onload = function() {
+            // 1. Tarayıcı adresindeki ?id=... kısmını yakala
+            const urlParams = new URLSearchParams(window.location.search);
+            const gelenId = urlParams.get('id');
+
+            // 2. Veriler.js içindeki listeden bu ID'yi bul
+            const yazi = blogYazilari.find(x => x.id == gelenId);
+
+            // 3. Eğer yazı bulunduysa HTML kutularını doldur
+            if (yazi) {
+                document.getElementById("detay-baslik").innerText = yazi.baslik;
+                document.getElementById("detay-tarih").innerText = yazi.tarih;
+                
+                // İçerik HTML formatında olduğu için innerHTML kullanıyoruz
+                document.getElementById("detay-icerik").innerHTML = yazi.icerik;
+                
+                // Resmi ayarla ve göster
+                const resimKutusu = document.getElementById("detay-resim");
+                resimKutusu.src = yazi.resim;
+                resimKutusu.style.display = "block";
+
+                // Sekme başlığını değiştir
+                document.title = yazi.baslik + " - Mühendis Blog";
+            } else {
+                // Yazı bulunamazsa (Mesela id=99 yazarlarsa)
+                document.getElementById("detay-baslik").innerText = "Yazı Bulunamadı";
+                document.getElementById("detay-icerik").innerHTML = "<p>Aradığınız içerik silinmiş veya mevcut değil.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>

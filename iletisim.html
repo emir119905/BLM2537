@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Mühendis Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Emir Yağız Kefeli Blog Sayfası</div>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Yazılarım ▼</a>
+                <div class="dropdown-content">
+                    <a href="teknoloji.html">Teknoloji</a>
+                    <a href="gunluk.html">Günlük</a>
+                    <a href="spor.html">Spor</a>
+                </div>
+            </li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <img src="img/imza.png" class="nav-imza" alt="K. Atatürk">
+    </nav>
+
+    <div class="row">
+        <div class="card">
+            <h2>Bana Ulaşın</h2>
+    
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        
+            <div style="flex: 2; min-width: 300px;">
+                <div class="container">
+                    <form onsubmit="mesajGonder(event)">
+                        <label for="fname">Adınız Soyadınız</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Adınız.." required>
+
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" placeholder="Mail.." required>
+
+                        <label for="subject">Mesaj</label>
+                        <textarea id="subject" name="subject" placeholder="Mesajınız.." style="height:150px" required></textarea>
+
+                        <input type="submit" value="Gönder">
+                    </form>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 250px; background: #2ec4b6; color: white; padding: 25px; border-radius: 10px; height: fit-content;">
+                <h3>İletişim Bilgileri</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Ankara, Türkiye</p>
+                <p><i class="fas fa-envelope"></i> emiryagizkefeli@gmail.com</p>
+                <p><i class="fas fa-university"></i> Ankara Üniversitesi Bilgisayar Mühendisliği</p>
+                <hr style="border-color: rgba(255,255,255,0.3);">
+                <p>Projeleriniz ve sorularınız için her zaman mail atabilirsiniz.</p>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+    <h3>EMİR YAĞIZ KEFELİ</h3>
+    <p>Bilgisayar Mühendisliği Öğrencisi & Teknoloji Meraklısı</p>
+    
+    <p style="margin-top: 15px; font-size: 14px; color: #ccc;">
+        Telif Hakkı &copy; 2025 &bull; Tüm Hakları Saklıdır
+    </p>
+
+    <div class="footer-links" style="margin-top: 10px;">
+        <a href="index.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Anasayfa</a> | 
+        <a href="galeri.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">Galeri</a> | 
+        <a href="iletisim.html" style="color: #2ec4b6; text-decoration: none; margin: 0 10px;">İletişim</a>
+
+        <span style="margin-left: 15px; border-left: 1px solid #555; padding-left: 15px;">
+            <a href="https://github.com/KULLANICIADIN" target="_blank" style="color: white; margin-right: 10px; font-size: 16px;"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" style="color: white; font-size: 16px;"><i class="fab fa-linkedin"></i></a>
+        </span>
+    </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

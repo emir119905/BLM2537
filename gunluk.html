@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günlük - Mühendis Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* JS'den gelen butonları pembe yap */
+        .read-more-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+        }
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%) !important;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3) !important;
+        }
+        /* Pagination aktif sayfa rengi */
+        .pagination a.active {
+            background-color: #f5576c !important;
+            border-color: #f5576c !important;
+        }
+        /* Footer linkleri */
+        .footer a { color: #f5576c !important; }
+        .footer-links i { color: white !important; } /* İkonlar beyaz kalsın */
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Emir Yağız Kefeli Blog Sayfası</div>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Yazılarım ▼</a>
+                <div class="dropdown-content">
+                    <a href="teknoloji.html">Teknoloji</a>
+                    <a href="gunluk.html">Günlük</a>
+                    <a href="spor.html">Spor</a>
+                </div>
+            </li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+        <img src="img/imza.png" class="nav-imza" alt="İmza">
+    </nav>
+
+    <div class="row">
+        <div class="leftcolumn">
+            
+            <div class="card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; margin-bottom: 30px;">
+                <h1 style="margin: 0; font-size: 36px;">📒 Günlük </h1>
+                <p style="margin: 10px 0 0 0; font-size: 18px; opacity: 0.95;">Kampüs hayatı, öğrenci anıları ve kişisel gelişim serüvenim</p>
+            </div>
+
+            <div class="blog-grid" id="yazi-izgarasi">
+                </div>
+
+            <div class="pagination" id="kategori-sayfalama">
+                </div>
+
+        </div>
+
+        <div class="rightcolumn">
+            
+            <div class="card">
+                <h3>📚 Kategoriler</h3>
+                <p><a href="teknoloji.html" style="color: #666; text-decoration: none;">→ Teknoloji</a></p>
+                <p><a href="gunluk.html" style="color: #f5576c; text-decoration: none; font-weight: 600;">→ Günlük</a></p>
+                <p><a href="spor.html" style="color: #666; text-decoration: none;">→ Spor</a></p>
+            </div>
+
+            <div class="card">
+                <h3>🔥 Popüler Yazılar</h3>
+                <p style="font-size: 14px; line-height: 1.8;">
+                    <a href="#" style="color: #333; text-decoration: none;">• İlk Blog Yazım</a><br>
+                    <a href="#" style="color: #333; text-decoration: none;">• Vize Haftası Taktikleri</a><br>
+                    <a href="#" style="color: #333; text-decoration: none;">• Ankara'da Öğrenci Olmak</a>
+                </p>
+            </div>
+            
+            <div class="card">
+                <h3>🏷️ Etiketler</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px;">
+                    <span style="background: #fff0f1; color: #f5576c; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">Kampüs</span>
+                    <span style="background: #fff0f1; color: #f5576c; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">Vlog</span>
+                    <span style="background: #fff0f1; color: #f5576c; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">Gezi</span>
+                    <span style="background: #fff0f1; color: #f5576c; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600;">Staj</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>EMİR YAĞIZ KEFELİ</h3>
+        <p>Bilgisayar Mühendisliği Öğrencisi & Teknoloji Meraklısı</p>
+        <p style="margin-top: 15px; font-size: 14px; color: #ccc;">Telif Hakkı &copy; 2025</p>
+        <div class="footer-links" style="margin-top: 10px;">
+            <a href="index.html" style="text-decoration: none; margin: 0 10px;">Anasayfa</a> | 
+            <a href="galeri.html" style="text-decoration: none; margin: 0 10px;">Galeri</a> | 
+            <a href="iletisim.html" style="text-decoration: none; margin: 0 10px;">İletişim</a>
+            <span style="margin-left: 15px; border-left: 1px solid #555; padding-left: 15px;">
+                <a href="https://github.com/KULLANICIADIN" target="_blank" style="color: white; margin-right: 10px; font-size: 16px;"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" style="color: white;"><i class="fab fa-linkedin"></i></a>
+            </span>
+        </div>
+    </div>
+
+    <script src="js/veriler.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        window.onload = function() {
+            if (typeof kategoriGetir === "function") {
+                kategoriGetir('gunluk', 1); 
+            }
+        };
+    </script>
+
+</body>
+</html>
